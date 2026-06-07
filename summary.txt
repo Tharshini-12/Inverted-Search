@@ -26,7 +26,8 @@ several .txt input files.
 ⚙️IMPLEMENTATION:
  Through the command line, the user provides one or more .txt files, each which checked for issues like empty files,
 repeated inputs and invalid extensions. The words are then extracted, converted to lowercase and stored in a hash table 
-where each word node keeps a linked list of file names and their occurrence counts.
+where each word node keeps a linked list of file names and their occurrence counts. The program prevents duplicate database
+creation and supports dynamic database updates by allowing additional files to be indexed after the initial database is created.
 The program provides menu options as,
 ->Create database
 ->Update database
@@ -37,13 +38,13 @@ The program provides menu options as,
 The database is dynamically maintained throughout the program.
 
 ⚠️LIMITATIONS AND CHALLENGES:
- Only .txt files are supported. Punctuation and symbols are ignored. Large files may take longer due to manual memory handling.
-Repeated files need to be monitored to avoid duplicating entries. The project can be improved in the future by supporting 
-additional file formats and adding advanced search functions like phrase or prefix searches.
+ Only .txt files are supported. Large files may take longer due to manual memory handling.
+Repeated files need to be monitored to avoid duplicating entries. The project currently supports indexing of alphabets, numbers 
+and symbol based tokens, but it can be improved in the future by supporting additional file formats and adding advanced search functions 
+like phrase or prefix searches.
 
 💻SAMPLE EXECUTION:
 ./out file1.txt file2.txt
-
 
 ---------------INVERTED SEARCH MENU---------------
 1.Create Database
@@ -59,27 +60,46 @@ File 'file1.txt' processed successfully.
 Database created successfully.
 Do you want to continue? (y/n): y
 
-Enter your choice: 2
-Enter the file name to update: file3.txt
-File 'file3.txt' updated successfully!
+---------------INVERTED SEARCH MENU---------------
+1.Create Database
+2.Update Database
+3.Search a Word
+4.Display Database
+5.Save Database to File
+6.Exit
+---------------------------------------------------
+Enter your choice: 1
+Database already created!
 Do you want to continue? (y/n): y
 
+---------------INVERTED SEARCH MENU---------------
+1.Create Database
+2.Update Database
+3.Search a Word
+4.Display Database
+5.Save Database to File
+6.Exit
+---------------------------------------------------
 Enter your choice: 4
 
 ---------------DATABASE CONTENTS---------------
-[7]     [hey   ]        1  File: file3.txt  1
-[7]     [hi    ]        1  File: file2.txt  1
-[7]     [hello ]        2  File: file1.txt  1 File: file2.txt  1
-[8]     [inverted]      1  File: file3.txt  1
-[8]     [is    ]        1  File: file3.txt  1
-[12]    [my    ]        1  File: file3.txt  1
-[15]    [project]       1  File: file3.txt  1
-[18]    [search]        1  File: file3.txt  1
-[19]    [this  ]        1  File: file3.txt  1
-[22]    [world ]        1  File: file1.txt  1
+[33]    [!!!   ]        1  File: file2.txt  1
+[35]    [#$    ]        1  File: file2.txt  1
+[49]    [123   ]        1  File: file2.txt  1
+[104]   [hi    ]        1  File: file2.txt  1
+[104]   [hello ]        2  File: file1.txt  1 File: file2.txt  1
+[119]   [world ]        1  File: file1.txt  1
 ---------------------------------------------------
 Do you want to continue? (y/n): y
 
+---------------INVERTED SEARCH MENU---------------
+1.Create Database
+2.Update Database
+3.Search a Word
+4.Display Database
+5.Save Database to File
+6.Exit
+---------------------------------------------------
 Enter your choice: 6
 Inverted Search is signing off...
 
