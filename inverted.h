@@ -8,7 +8,7 @@
 #include<stdio.h>
 #include<stdlib.h>
 
-#define SIZE 26 //Hash table size (a-z)
+#define SIZE    128 //Hash table size (a-z)
 #define MAXWORD 30 //Maximum length of a word
 #define MAXFILE 50 //Maximum length of a filename
 
