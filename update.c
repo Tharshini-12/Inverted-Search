@@ -65,7 +65,7 @@ int update_database(Htable *table, char *fname, Inputfile **list)
         if(ch>='A'&&ch<='Z')
             ch=ch+32;
         //if alphabet,build word
-        if(ch>='a'&&ch<='z')
+        if((ch>='a'&&ch<='z')||(ch>='0'&&ch<='9')||ch=='#'||ch=='$'||ch=='&'||ch=='^'||ch=='!')
         {
             if(w_index < MAXWORD-1)
             {
