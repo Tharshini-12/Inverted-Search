@@ -30,6 +30,7 @@ int choice;
 char filename[MAXFILE];
 char word[MAXWORD];
 char option;
+int dataBase_created=0;
 
 do
 {
@@ -51,21 +52,21 @@ do
     switch(choice)
     {
         case 1:
-        //reintializing table before creating fresh database
-        for(int i=0;i<SIZE;i++)
+        if(dataBase_created)
         {
-          table[i].head=NULL;
-          table[i].index=i;
-        }
-          if(create_database(table,file_list)==SUCCESS)
-          {
-            printf("Database created successfully.\n");
-          }
-          else
-          {
-            printf("ERROR: Failed to create database!\n");
-          }
+          printf("Database already created!\n");
           break;
+        }
+        if(create_database(table,file_list)==SUCCESS)
+        {
+          dataBase_created=1;
+          printf("Database created successfully.\n");
+        }
+        else
+        {
+          printf("ERROR: Failed to create database!\n");
+        }
+        break;
 
         case 2:
           printf("Enter the file name to update: ");
