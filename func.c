@@ -8,17 +8,7 @@
 int hash_key(const char *word)
 {
     char ch=word[0];
-    //convert uppercase to lowercase
-    if(ch>='A'&&ch<='Z')
-    {
-        ch+=32;
-    }
-    //alphabet check
-    if(ch>='a'&&ch<='z')
-    {
-        return ch-'a';
-    }
-    return 0;//default bucket
+    return (unsigned char)ch;
 }
 
 
